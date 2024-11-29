@@ -3,9 +3,7 @@ DAIC-woz数据集由于版权问题，需要自行去官网申请。
 DAIC-WOZ数据库：
 官网：https://dcapswoz.ict.usc.edu/
 
-下载方式：
-
-下载打印协议 https://dcapswoz.ict.usc.edu/wwwutil_files/DAICWOZDEP_EULA.pdf（打不开就从官网里打开）签署后发送到boberg@ict.usc.edu
+下载打印协议签署后发送到boberg@ict.usc.edu
 -------------------------------------
 
 # DAIC-woz处理流程如下：(各代码中只需替换申请到的数据路径)
