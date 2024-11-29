@@ -9,6 +9,9 @@
 2：项目torchvggish-master里的main.py：
 依据在YouTube-8M预训练的VGGish模型，对各样本的单次回答语音提取n*128的特征，特征保存在文件audio_paragraph_features.pickle。
 为什么是n*128?因为1秒的语音特征是1*128，如果单次回答是5.3秒，那特征就是5*128。
+# torchvggish-master
+torchvggish-master下载入口：。
+[VGGish](https://github.com/LIU70KG/torchvggish/tree/main/torchvggish-master)<sup>[1]</sup>, 
 
 3：项目daic_woz_processing-master里的txt_paragraph_features.py：
 依据在英语bert-base-uncased预训练的bert模型，对各样本的单次回答文本内容提取1*768的特征，特征保存在文件text_paragraph_features.pickle。
