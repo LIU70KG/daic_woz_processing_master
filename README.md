@@ -5,6 +5,7 @@
 # 1：项目daic_woz_processing-master里的obtain_paragraph.py ：
 
 第一步：读取数据集的原始数据（转录文本和语音），获取转录文本中被采访者每次回答的开始和结束时间（以每次回答为准，即问题级段落）。每次回答的开始和结束时间存储在文件on_off_times.pickle里。同时，记录每次回答的内容，即转录文本，存储在文件paragraph_all.pickle里。
+
 注1：只记录单次回答大于1秒的内容，小于1秒的单次回复信息较少且不适应于后续VGGish提取特征，所以抛弃。
 
 注2：特殊数据特殊处理，例如，只有被采访者的语音被转录的样本special_case_2 = [451, 458, 480]，将其各回答组成若干个大于1秒的段落。存在中断的样本special_case = {373: [395, 428],444: [286, 387]}内的内容选择跳过。时间错位的样本special_case_3 = {318: 34.319917, 321: 3.8379167, 341: 6.1892, 362: 16.8582}进行时间矫正。
@@ -22,8 +23,10 @@ torchvggish-master下载入口：。
 
 # 4：项目daic_woz_processing-master里的visual_paragraph_features.py
 依据openface特征，提取特定的特征，例如suffixes = ['AUs.txt', 'gaze.txt', 'pose.txt']共38个。与audio_paragraph_features.pickle一样，提取对应的单次回答相关的多帧openface的视觉帧特征，例如n*38。计算这n帧的第一帧特征、均值、方差、序列的自相关性，获得1*（4*38）即1*152特征。特征保存在文件visual_paragraph_features.pickle。
-注：小于1秒的回答，同样抛弃，[1,2)秒对应特征是1*152，如果单次回答是[2,n]秒，那特征就是n*152。
-注：缺少后续视频帧的样本{402, 420}对应的语句跳过。所以，后续对齐需要以视觉特征为准。
+
+注1：小于1秒的回答，同样抛弃，[1,2)秒对应特征是1*152，如果单次回答是[2,n]秒，那特征就是n*152。
+
+注2：缺少后续视频帧的样本{402, 420}对应的语句跳过。所以，后续对齐需要以视觉特征为准。
 
 # 5：项目daic_woz_processing-master里的daic_paragraph_fea.py
 将各模态特征对齐，对于视觉和语音的特征，若段落特征>1，暂时只取第一个特征。从而各样本的模态特征为：（视觉：段落*152；语音：段落*128；文本：段落*768)。数据分为训练、验证、训练+验证、测试、全部。分别为：train_data_paragraph_?_.pkl、valid_data_paragraph_?_.pkl、train_valid_data_paragraph_?_.pkl、test_data_paragraph_?_.pkl、fea_all_paragraph_?_.pkl。
