@@ -1,3 +1,7 @@
+# DAIC-woz数据集由于版权问题，需要自行去官网申请。
+各代码中只需替换申请到的数据路径。
+
+# DAIC-woz处理流程如下：
 # 1：项目daic_woz_processing-master里的obtain_paragraph.py ：
 
 第一步：读取数据集的原始数据（转录文本和语音），获取转录文本中被采访者每次回答的开始和结束时间（以每次回答为准，即问题级段落）。每次回答的开始和结束时间存储在文件on_off_times.pickle里。同时，记录每次回答的内容，即转录文本，存储在文件paragraph_all.pickle里。
