@@ -18,8 +18,8 @@ DAIC-WOZ数据库：
 第二步：依据on_off_times内的时间，将原始数据里的wav语音进行对应的截断。各样本的单次回答语音存储在audio_paragraph下的sample_paragraph文件夹；各样本中被采访者完整语音存储在audio_paragraph下的audio_data文件夹。
 
 # 2：项目torchvggish-master里的main.py：
-依据在YouTube-8M预训练的VGGish模型，对各样本的单次回答语音提取n*128的特征，特征保存在文件audio_paragraph_features.pickle。
-为什么是n*128?因为1秒的语音特征是1*128，如果单次回答是5.3秒，那特征就是5*128。
+依据在YouTube-8M预训练的VGGish模型，对各样本的单次回答语音提取n * 128的特征，特征保存在文件audio_paragraph_features.pickle。
+为什么是n * 128?因为0.96秒的语音特征是1 * 128，如果单次回答是5.3秒，那特征就是5 * 128。
 torchvggish-master下载入口：。
 [VGGish](https://github.com/LIU70KG/torchvggish/tree/main/torchvggish-master)<sup>[1]</sup>, 
 
