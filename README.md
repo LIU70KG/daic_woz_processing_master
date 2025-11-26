@@ -1,14 +1,20 @@
-## 建议引用论文，使用数据集处理流程一致
+## 该数据集处理流程见论文
 
 @article{liu2025mitigating,
+
   title={Mitigating Symptom Heterogeneity in Multimodal Depression Estimation Via Level Separation and Deviation Regression},
+  
   author={Liu, Chengguang and Wang, Shanmin and Liu, Qingshan and Wang, Yang and Wang, Fei},
+  
   journal={IEEE Transactions on Affective Computing},
+  
   year={2025},
+  
   publisher={IEEE}
+  
 }
 
-DAIC-woz数据集由于版权问题，需要自行去官网申请。
+## DAIC-woz数据集由于版权问题，需要自行去官网申请。
 
 DAIC-WOZ数据库：
 官网：https://dcapswoz.ict.usc.edu/
